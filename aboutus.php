@@ -63,10 +63,10 @@ session_start();
     </nav>
 
    <!-- About Us Section -->
-<section class="container mx-auto px-6 py-12">
-    <div class="text-center mb-12 animate-fade-in-up">
+   <section class="container mx-auto px-6 py-12">
+    <div class="text-center mb-5 animate-fade-in-up">
         <h1 class="text-4xl font-bold mb-4 transform transition-all duration-500 hover:scale-105">
-            <span class="bg-gradient-to-r from-light to-lighter text-transparent bg-clip-text">
+            <span class="text-white">
                 About Our Initiative
             </span>
         </h1>
@@ -74,67 +74,7 @@ session_start();
             Pioneering Educational Insights Through Data-Driven Solutions
         </p>
     </div>
-
-    <!-- Enhanced Mission Section -->
-    <div class="vertical-section bg-gradient-to-br from-secondary/80 to-primary/90 rounded-lg shadow-2xl p-8 
-                transform transition-all duration-500 hover:scale-[1.01] hover:shadow-3xl
-                animate-slide-in-left">
-        <div class="flex items-center space-x-4 mb-4">
-            <div class="h-1 w-12 bg-accent animate-pulse"></div>
-            <h2 class="text-2xl font-bold text-lighter">Our Commitment to Education</h2>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="space-y-4">
-                <p class="text-body leading-relaxed text-lg pl-4 border-l-4 border-accent">
-                    Founded in 2025, our platform has analyzed dropout patterns across 15,000+ schools, 
-                    identifying key socioeconomic factors influencing student retention. We combine 
-                    advanced analytics with educational expertise to:
-                </p>
-                
-                <ul class="space-y-3 text-body">
-                    <li class="flex items-center">
-                        <i class="fas fa-chart-line text-accent mr-3"></i>
-                        Track real-time dropout trends across regions
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-lightbulb text-accent mr-3"></i>
-                        Develop predictive models for early intervention
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-hands-helping text-accent mr-3"></i>
-                        Partner with 200+ educational institutions
-                    </li>
-                </ul>
-            </div>
-
-            <div class="space-y-4">
-                <div class="p-4 bg-primary/30 rounded-lg">
-                    <h3 class="text-lighter text-lg font-semibold mb-2">Key Achievements</h3>
-                    <div class="flex justify-between text-body">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-accent">35%</div>
-                            <div class="text-sm">Reduction Prediction</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-accent">1.2M+</div>
-                            <div class="text-sm">Students Impacted</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-accent">89%</div>
-                            <div class="text-sm">Accuracy Rate</div>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="text-body leading-relaxed">
-                    Our machine learning models process over 50 demographic indicators, 
-                    including family income, academic performance, and community infrastructure, 
-                    to provide actionable insights for policymakers and educators.
-                </p>
-            </div>
-        </div>
-
+</section>
         <div class="mt-6 flex justify-end">
             <div class="w-24 h-1 bg-accent animate-pulse"></div>
         </div>
@@ -143,115 +83,144 @@ session_start();
 
        <!-- Team Section -->
 <div class="space-y-12">
-    <!-- Team Member 1 - Left Aligned -->
-    <div class="flex flex-col md:flex-row items-center gap-8">
-        <div class="w-full bg-tertiary rounded-lg shadow-md p-8">
-            <div class="team-card rounded-lg shadow-md p-8 text-center">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="md:w-1/3">
-                        <img src="img/team1.jpg" alt="John Doe" class="w-48 h-48 rounded-full mx-auto mb-4">
-                    </div>
-                    <div class="md:w-2/3 text-left">
-                        <h3 class="text-2xl font-bold text-white mb-2">Priya Pandey</h3>
-                        <p class="text-body text-lg mb-4">Project Manager</p>
-                        <p class="text-body mb-4">
-                            With over 10 years of experience in educational management, John leads our strategic initiatives 
-                            and ensures alignment with national educational policies. Specializes in program implementation 
-                            and stakeholder engagement.
-                        </p>
-                        <div class="flex justify-start space-x-4">
-                            <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-linkedin fa-lg"></i></a>
-                            <a href="#" class="text-pink-400 hover:text-pink-600"><i class="fab fa-instagram fa-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-   <!-- Team Member 2 - Right Aligned -->
+   <!-- Team Member 1 - Left Aligned -->
 <div class="flex flex-col md:flex-row items-center gap-8">
     <div class="w-full bg-tertiary rounded-lg shadow-md p-8">
         <div class="team-card rounded-lg shadow-md p-8 text-center">
-            <div class="flex flex-col md:flex-row-reverse items-center gap-8"> <!-- Changed to flex-row-reverse -->
+            <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="md:w-1/3">
-                    <img src="img/aastha.jpeg" alt="Aastha Ghosh" class="w-48 h-48 rounded-full mx-auto mb-4">
+                    <img src="1000014162.jpg" alt="Priya Pandey" class="w-100 h-60 mx-auto mb-4">
+                </div>
+                <div class="md:w-2/3 text-left">
+                    <h3 class="text-2xl font-bold text-white mb-2">Priya Pandey</h3>
+                    <p class="text-body text-lg mb-4">Team Leader</p>
+                    <p class="text-body mb-4">
+                    Visionary & UI/UX Designer
+                    The mind behind the concept, layout, and structure of the entire platform. From ideation to design, every visual and functional flow was meticulously crafted to ensure clarity, usability, and a compelling user experience.
+                    </p>
+                    <div class="flex justify-start space-x-4">
+    <a href="https://www.linkedin.com/in/pryfi404/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-600">
+        <i class="fab fa-linkedin fa-lg"></i>
+    </a>
+    <a href="https://github.com/PryFi-404" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600">
+        <i class="fab fa-github fa-lg"></i>
+    </a>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Team Member 2 - Right Aligned -->
+<div class="flex flex-col md:flex-row items-center gap-8">
+    <div class="w-full bg-tertiary rounded-lg shadow-md p-8">
+        <div class="team-card rounded-lg shadow-md p-8 text-center">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                <div class="md:w-1/3">
+                    <img src="file_2025-04-16_14.38.58.png" alt="Aastha Ghosh" class="w-90 h-80 mx-auto mb-4">
                 </div>
                 <div class="md:w-2/3 text-left">
                     <h3 class="text-2xl font-bold text-white mb-2">Aastha Ghosh</h3>
-                    <p class="text-body text-lg mb-4">Lead Data Analyst</p>
+                    <p class="text-body text-lg mb-4">Team member</p>
                     <p class="text-body mb-4">
-                        Data science expert with 7 years of experience in educational analytics. Manages our data pipeline 
-                        and ensures the accuracy of predictive models. Proficient in Python, R, and advanced visualization tools.
+                    Backend Developer & Intervention Architect
+                    Brought the vision to life through a robust backend framework. She also designed and integrated data-driven interventions, turning analytics into meaningful action to address student dropouts.
+                    </p>
+<div class="flex justify-start space-x-4">
+    <a href="https://www.linkedin.com/in/aasthaghosh24/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-600">
+        <i class="fab fa-linkedin fa-lg"></i>
+    </a>
+    <a href="https://github.com/aasthaghosh" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600">
+        <i class="fab fa-github fa-lg"></i>
+    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Team Member 3 - Left Aligned -->
+<div class="flex flex-col md:flex-row items-center gap-8">
+    <div class="w-full bg-tertiary rounded-lg shadow-md p-8">
+        <div class="team-card rounded-lg shadow-md p-8 text-center">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3">
+                    <img src="yukta (2).jpeg" alt="Alice Johnson" class="w-100 h-80 mx-auto mb-4">
+                </div>
+                <div class="md:w-2/3 text-left">
+                    <h3 class="text-2xl font-bold text-white mb-2">Yukta Shree</h3>
+                    <p class="text-body text-lg mb-4">Team member</p>
+                    <p class="text-body mb-4">
+                    Development Collaborator & Creative Contributor
+                    Actively supported both frontend and backend development. With a keen eye for detail and a collaborative spirit, they helped tie everything together, ensuring smooth functionality and consistency throughout the platform.
                     </p>
                     <div class="flex justify-start space-x-4">
-                        <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="#" class="text-pink-400 hover:text-pink-600"><i class="fab fa-instagram fa-lg"></i></a>
-                    </div>
+    <a href="https://www.linkedin.com/in/yukta-shree-3b2398277/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-600">
+        <i class="fab fa-linkedin fa-lg"></i>
+    </a>
+    <a href="https://github.com/Yukta233" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600">
+        <i class="fab fa-github fa-lg"></i>
+    </a>
+</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-    <!-- Team Member 3 - Left Aligned -->
-    <div class="flex flex-col md:flex-row items-center gap-8">
-        <div class="w-full bg-tertiary rounded-lg shadow-md p-8">
-            <div class="team-card rounded-lg shadow-md p-8 text-center">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="md:w-1/3">
-                        <img src="img/team3.jpg" alt="Alice Johnson" class="w-48 h-48 rounded-full mx-auto mb-4">
-                    </div>
-                    <div class="md:w-2/3 text-left">
-                        <h3 class="text-2xl font-bold text-white mb-2">Yukta Shree</h3>
-                        <p class="text-body text-lg mb-4">Senior Developer</p>
-                        <p class="text-body mb-4">
-                            Full-stack developer specializing in educational technology platforms. Leads our platform development 
-                            team with expertise in PHP, JavaScript, and database architecture. Focused on creating intuitive user experiences.
-                        </p>
-                        <div class="flex justify-start space-x-4">
-                            <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-linkedin fa-lg"></i></a>
-                            <a href="#" class="text-pink-400 hover:text-pink-600"><i class="fab fa-instagram fa-lg"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-        <!-- Contact Section -->
-        <div class="vertical-section contact-card rounded-lg shadow-md p-8">
-            <h2 class="text-2xl font-bold section-title mb-4">Contact Us</h2>
-            <p class="text-body leading-relaxed mb-4">
-                Have questions or want to learn more about our project? Feel free to reach out to us!
-            </p>
-            <p class="text-body"><strong>Email:</strong> support@dropoutanalysis.com</p>
-            <p class="text-body"><strong>Phone:</strong> +1 234 567 890</p>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-primary text-white py-6">
-        <div class="container mx-auto text-center">
-            <p class="text-sm">&copy; <?php echo date('Y'); ?> Dropout Analysis System. All rights reserved.</p>
+    <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 tracking-tight">DROPOUT ANALYSIS</h3>
+                    <p class="text-light leading-relaxed">
+                        Identifying and supporting at-risk students through data analysis.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 tracking-tight">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-light hover:text-white font-medium">Home</a></li>
+                        <li><a href="analysis.php" class="text-light hover:text-white font-medium">Analysis</a></li>
+                        <li><a href="intervensions.php" class="text-light hover:text-white font-medium">Interventions</a></li>
+                        <li><a href="aboutus.php" class="text-light hover:text-white font-medium">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 tracking-tight">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-light hover:text-white font-medium">Research Papers</a></li>
+                        <li><a href="https://www.kaggle.com/code/jeevabharathis/student-dropout-analysis-for-school-education" target="_blank" class="text-light hover:text-white font-medium">Kaggle</a></li>
+                        <li><a href="https://www.data.gov.in/keywords/Dropout" class="text-light hover:text-white font-medium" target="_blank">Government Website</a></li>
+                        <li><a href="faq.php" class="text-light hover:text-white font-medium">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 tracking-tight">Contact Us</h3>
+                    <ul class="space-y-2 text-light">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dropoutanalysisofficial@gmail.com" target="_blank" class="text-light hover:text-white">dropoutanalysisofficial@gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <a href="tel:+917836912212" class="text-light hover:text-white">+91 7836912212</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <a href="https://maps.app.goo.gl/WryHGeufZnG1VmNr8" target="_blank">Lovely Professional University<br>Phagwara, Punjab</a>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-tertiary mt-12 pt-8 text-center text-light">
+                <p>&copy; <?= date('Y') ?> Student Dropout Analysis System. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#08141B',
-                        'secondary': '#11212D',
-                        'tertiary': '#233745',
-                        'accent': '#4A5C6A',
-                        'light': '#9BAAAB',
-                        'lighter': '#CCD0CF',
-                    }
-                }
-            }
-        }
     </script>
 </body>
 </html>
