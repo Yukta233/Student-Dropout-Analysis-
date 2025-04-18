@@ -45,7 +45,7 @@ session_start();
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <i class="fas fa-graduation-cap text-2xl text-accent mr-2"></i>
-                    <span class="font-semibold text-xl">Dropout Analysis</span>
+                    <span class="font-semibold text-xl">DropTrace</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.php" class="text-light hover:text-white">Home</a>
@@ -191,7 +191,7 @@ session_start();
                 <div>
                     <h3 class="text-lg font-semibold mb-4 tracking-tight">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-light hover:text-white font-medium">Research Papers</a></li>
+                    <li><a href="https://github.com/saiteja2108/DROPOUT-ANALYSIS" class="text-light hover:text-white font-medium" target="_blank">Git Hub</a></li>
                         <li><a href="https://www.kaggle.com/code/jeevabharathis/student-dropout-analysis-for-school-education" target="_blank" class="text-light hover:text-white font-medium">Kaggle</a></li>
                         <li><a href="https://www.data.gov.in/keywords/Dropout" class="text-light hover:text-white font-medium" target="_blank">Government Website</a></li>
                         <li><a href="faq.php" class="text-light hover:text-white font-medium">FAQ</a></li>
