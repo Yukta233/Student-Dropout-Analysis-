@@ -67,7 +67,7 @@ try {
     </script>
     <style>
         .hero-bg {
-            background-image: linear-gradient(rgba(8, 20, 27, 0.8), rgba(8, 20, 27, 0.8)), 
+            background-image: linear-gradient(rgba(18, 38, 49, 0.8), rgba(8, 20, 27, 0.8)), 
                               url('https://images.unsplash.com/flagged/photo-1574097656146-0b43b7660cb6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
             background-position: center;
@@ -83,31 +83,98 @@ try {
 </head>
 <body class="bg-lighter font-sans bg-primary text-lighter font-space">
     <!-- Navigation Bar -->
-    <nav class="bg-primary text-white shadow-lg">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <i class="fas fa-graduation-cap text-2xl text-accent mr-2"></i>
-                    <span class="font-semibold text-xl tracking-tight">DROPOUT ANALYSIS</span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.php" class="text-light hover:text-white font-medium">Home</a>
-                    <a href="analysis.php" class="text-light hover:text-white font-medium">Analysis</a>
-                    <a href="intervensions.php" class="text-light hover:text-white font-medium">Interventions</a>
-                    <a href="aboutus.php" class="text-light hover:text-white font-medium">About Us</a>
-                    <?php if (isset($_SESSION['user_id'])): ?>
-                    <a href="logout.php" class="text-light hover:text-white">Logout</a>
-                    <?php else: ?>
-                        <a href="login.php" class="bg-accent hover:bg-tertiary text-white px-4 py-2 rounded">Login</a>
-                    <?php endif; ?>
-                </div>
-                <button class="md:hidden text-white focus:outline-none">
-                    <i class="fas fa-bars"></i>
+    <nav class="bg-primary text-white shadow-lg fixed top-0 left-0 w-full z-50">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo Section -->
+            <div class="flex items-center">
+                <i class="fas fa-graduation-cap text-2xl text-accent mr-2"></i>
+                <span class="font-semibold text-xl tracking-tight">DropTrace</span>
+            </div>
+
+            <!-- Navigation Links and Buttons -->
+            <div class="flex items-center space-x-6">
+                <a href="index.php" class="text-light hover:text-white font-medium">Home</a>
+                <a href="analysis.php" class="text-light hover:text-white font-medium">Analysis</a>
+                <a href="intervensions.php" class="text-light hover:text-white font-medium">Interventions</a>
+                <a href="aboutus.php" class="text-light hover:text-white font-medium">About Us</a>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <a href="logout.php" class="text-light hover:text-white font-medium">Logout</a>
+                <?php else: ?>
+                    <a href="login.php" class="bg-accent hover:bg-tertiary text-white px-4 py-2 rounded">Login</a>
+                <?php endif; ?>
+                <!-- Dark Mode Toggle Button -->
+                <button id="theme-toggle" class="text-white focus:outline-none">
+                    <i id="theme-icon" class="fas fa-sun"></i>
                 </button>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
+<script>
+    // Theme toggle logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+
+    // Check for saved theme in localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        themeIcon.className = savedTheme === 'dark-mode' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+
+    themeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light-mode');
+            themeIcon.className = 'fas fa-sun';
+        } else {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+            themeIcon.className = 'fas fa-moon';
+        }
+    });
+</script>
+
+<style>
+    /* Light Mode (Default) */
+    body {
+        background-color: #f9fafb;
+        color: #1a202c;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+        background-color: #1a202c;
+        color: #f9fafb;
+    }
+
+    body.dark-mode .bg-primary {
+        background-color: #2d3748;
+    }
+
+    body.dark-mode .bg-secondary {
+        background-color: #4a5568;
+    }
+
+    body.dark-mode .bg-tertiary {
+        background-color: #2d3748;
+    }
+
+    body.dark-mode .text-light {
+        color: #e2e8f0;
+    }
+
+    body.dark-mode .text-lighter {
+        color: #cbd5e0;
+    }
+
+    body.dark-mode a:hover {
+        color: #63b3ed;
+    }
+</style>
     <!-- Hero Section -->
     <section class="hero-bg text-white py-24">
         <div class="container mx-auto px-6 text-center">
@@ -115,7 +182,7 @@ try {
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-light leading-relaxed">
                 "Dropouts aren't numbers; they're stories unwritten, talents untapped, and hopes unfulfilled."
             </p>
-            <a href="#analysis" class="bg-accent hover:bg-tertiary text-white font-bold py-3 px-8 rounded-lg inline-block transition duration-300 tracking-wide">
+            <a href="analysis.php" class="bg-accent hover:bg-tertiary text-white font-bold py-3 px-8 rounded-lg inline-block transition duration-300 tracking-wide">
                 EXPLORE DATA
             </a>
         </div>
@@ -136,19 +203,19 @@ try {
                     </p>
                 </div>
                 <div class="stat-card bg-tertiary p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-3 tracking-tight">Elementary (Grades 1-8)</h3>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Elementary (Grades 6-8)</h3>
                     <p class="text-light text-sm leading-relaxed">
                         <span class="text-accent">74.6% → 81.2% → 78.0%</span> (2019-20 to 2023-24)
                     </p>
                 </div>
                 <div class="stat-card bg-tertiary p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-3 tracking-tight">Secondary (Grades 1-10)</h3>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Secondary (Grades 9-10)</h3>
                     <p class="text-light text-sm leading-relaxed">
                         <span class="text-accent">59.6% → 65.5% → 63.8%</span> (2019-20 to 2023-24)
                     </p>
                 </div>
                 <div class="stat-card bg-tertiary p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-3 tracking-tight">Higher Secondary (1-12)</h3>
+                    <h3 class="text-xl font-bold mb-3 tracking-tight">Higher Secondary (11-12)</h3>
                     <p class="text-light text-sm leading-relaxed">
                         <span class="text-accent">40.2% → 45.6%</span> (2019-20 to 2023-24)
                     </p>
@@ -165,7 +232,7 @@ try {
     <div class="relative overflow-hidden min-h-[60vh] flex items-center">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/10 to-transparent opacity-20"></div>
         <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <h1 class="text-6xl md:text-8xl font-bold mb-6 text-accent">DROPOUT ANALYSIS</h1>
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 text-accent">Dropout Analysis</h1>
             <p class="text-xl md:text-2xl text-light max-w-2xl">
                 Visualizing patterns in student retention and risk factors
             </p>
@@ -235,7 +302,7 @@ try {
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 tracking-tight">DROPOUT ANALYSIS</h3>
+                    <h3 class="text-lg font-semibold mb-4 tracking-tight">DropTrace</h3>
                     <p class="text-light leading-relaxed">
                         Identifying and supporting at-risk students through data analysis.
                     </p>
@@ -244,18 +311,18 @@ try {
                     <h3 class="text-lg font-semibold mb-4 tracking-tight">Quick Links</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="text-light hover:text-white font-medium">Home</a></li>
-                        <li><a href="#" class="text-light hover:text-white font-medium">Analysis</a></li>
-                        <li><a href="#" class="text-light hover:text-white font-medium">Interventions</a></li>
-                        <li><a href="#" class="text-light hover:text-white font-medium">About Us</a></li>
+                        <li><a href="analysis.php" class="text-light hover:text-white font-medium">Analysis</a></li>
+                        <li><a href="intervensions.php" class="text-light hover:text-white font-medium">Interventions</a></li>
+                        <li><a href="aboutus.php" class="text-light hover:text-white font-medium">About Us</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4 tracking-tight">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-light hover:text-white font-medium">Research Papers</a></li>
-                        <li><a href="#" class="text-light hover:text-white font-medium">Kaggle</a></li>
-                        <li><a href="#" class="text-light hover:text-white font-medium">Webinars</a></li>
-                        <li><a href="#" class="text-light hover:text-white font-medium">FAQ</a></li>
+                        <li><a href="https://github.com/saiteja2108/DROPOUT-ANALYSIS" class="text-light hover:text-white font-medium" target="_blank">Git Hub</a></li>
+                        <li><a href="https://www.kaggle.com/code/jeevabharathis/student-dropout-analysis-for-school-education" target="_blank" class="text-light hover:text-white font-medium">Kaggle</a></li>
+                        <li><a href="https://www.data.gov.in/keywords/Dropout" class="text-light hover:text-white font-medium" target="_blank">Government Website</a></li>
+                        <li><a href="faq.php" class="text-light hover:text-white font-medium">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
@@ -263,15 +330,16 @@ try {
                     <ul class="space-y-2 text-light">
                         <li class="flex items-start">
                             <i class="fas fa-envelope mt-1 mr-2"></i>
-                            <span>info@dropoutanalysis.edu</span>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dropoutanalysisofficial@gmail.com    " target="_blank" class="text-light hover:text-white">dropoutanalysisofficial@gmail.com</a>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-phone-alt mt-1 mr-2"></i>
-                            <span>+91 7836900000</span>
+                            <a href="tel:+917836912212" class="text-light hover:text-white">+91 7836912212</a>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
-                            <span>Lovely Professional University<br>Phagwara, Punjab</span>
+                            <a href="https://maps.app.goo.gl/WryHGeufZnG1VmNr8" target="_blank">Lovely Professional University<br>Phagwara, Punjab</a>
+                            
                         </li>
                     </ul>
                 </div>
