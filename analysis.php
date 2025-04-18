@@ -22,6 +22,13 @@ function loadRealData($filename) {
                     ['name' => 'Others', 'percentage' => (int)$row[9]]
                 ],
                 'strategies' => explode(';', $row[10]), // Assuming strategies are in column 11
+                'strategies' => [
+                'Financial Assistance',
+                'Community Engagement',
+                'Infrastructure Development',
+                'Curriculum Enhancement',
+                'Safety Measures'
+            ],
                 'image' => 'img/' . strtolower(str_replace(' ', '_', $state)) . '.png',
                 'national_comparison' => [
                     'primary' => 'Varies by state',
@@ -226,6 +233,7 @@ $schoolTypeData = [
         'strategies' => ['Fee Subsidies', 'Quality Regulation', 'Community Support']
     ]
 ];
+
 ?>
 
 <!DOCTYPE html>
@@ -381,7 +389,7 @@ $schoolTypeData = [
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <i class="fas fa-graduation-cap text-2xl text-accent mr-2"></i>
-                    <span class="font-semibold text-xl">DROPOUT ANALYSIS</span>
+                    <span class="font-semibold text-xl">DropTrace</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.php" class="text-light hover:text-white">Home</a>
@@ -427,12 +435,12 @@ $schoolTypeData = [
 
         <!-- States Section -->
         <div id="states-section" class="filter-section">
-            <div class="states-grid mb-16" id="stateCards">
-                <?php foreach ($states as $state => $data): ?>
-                    <div class="state-card w-80 cursor-pointer" 
-                         style="background-image: url('<?= $data['image'] ?>')"
-                         data-state-name="<?= strtolower($state) ?>"
-                         onclick="openModal('states', '<?= strtolower(str_replace(' ', '-', $state)) ?>')">
+    <div class="states-grid mb-16" id="stateCards">
+        <?php foreach ($states as $state => $data): ?>
+            <div class="state-card w-80 cursor-pointer" 
+                 style="background-image: url('<?= $data['image'] ?>'); display: none;"
+                 data-state-name="<?= strtolower($state) ?>"
+                 onclick="openModal('states', '<?= strtolower(str_replace(' ', '-', $state)) ?>')">
                         <div class="content text-white">
                             <h3 class="text-2xl font-bold mb-8"><?= $state ?></h3>
                             <div class="opacity-0 transition-opacity duration-300 state-card:hover:opacity-100">
@@ -444,9 +452,12 @@ $schoolTypeData = [
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
-            </div>
+                    <?php endforeach; ?>
+        <div id="noResultsMessage" class="text-center py-8 text-gray-600" style="display: none;">
+            No states found matching "<span class="font-semibold"></span>"
         </div>
+    </div>
+</div>
 
         <!-- Gender Section -->
         <div id="gender-section" class="filter-section hidden">
@@ -489,6 +500,11 @@ $schoolTypeData = [
         <?php endforeach; ?>
     </div>
 </div>
+<div class="flex justify-center mb-12">
+    <a href="contri.php" class="bg-accent hover:bg-tertiary text-white font-medium py-2 px-6 rounded">
+    Contribute
+</a>
+</div>
 
         <!-- Modals -->
         <?php 
@@ -511,11 +527,11 @@ $schoolTypeData = [
                             <div class="flex flex-col md:flex-row items-center">
                                 <div class="md:w-1/3 mb-6 md:mb-0">
                                     <div class="h-48 w-full rounded-lg overflow-hidden shadow-md">
-                                        <img src="img/india.png"class="h-30 w-30 object-cover">
+                                        <img src="india.png"class="h-full w-full object-contain">
                                     </div>
                                 </div>
                                 <div class="md:w-2/3 md:pl-8">
-                                    <h2 class="text-3xl font-bold mb-2"><?= $itemName ?> Dropout Analysis</h2>
+                                    <h2 class="text-3xl font-bold mb-2"><?= $itemName ?> DropTrace</h2>
                                     <p class="text-light mb-6">Insights into dropout trends for <?= $itemName ?></p>
                                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                                         <div class="bg-tertiary p-3 rounded-lg">
@@ -581,7 +597,6 @@ $schoolTypeData = [
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Key Statistics -->
                             <div class="stats-section">
                                 <h3 class="stats-title">Key Statistics</h3>
@@ -616,15 +631,64 @@ $schoolTypeData = [
         <?php endforeach; ?>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-secondary text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-light">© <?= date('Y') ?> India Dropout Analysis System. All rights reserved.</p>
+   <!-- Footer -->
+   <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 tracking-tight">DROPOUT ANALYSIS</h3>
+                    <p class="text-light leading-relaxed">
+                        Identifying and supporting at-risk students through data analysis.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 tracking-tight">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.php" class="text-light hover:text-white font-medium">Home</a></li>
+                        <li><a href="analysis.php" class="text-light hover:text-white font-medium">Analysis</a></li>
+                        <li><a href="intervensions.php" class="text-light hover:text-white font-medium">Interventions</a></li>
+                        <li><a href="aboutus.php" class="text-light hover:text-white font-medium">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 tracking-tight">Resources</h3>
+                    <ul class="space-y-2">
+                    <li><a href="https://github.com/saiteja2108/DROPOUT-ANALYSIS" class="text-light hover:text-white font-medium" target="_blank">Git Hub</a></li>
+                        <li><a href="https://www.kaggle.com/code/jeevabharathis/student-dropout-analysis-for-school-education" target="_blank" class="text-light hover:text-white font-medium">Kaggle</a></li>
+                        <li><a href="https://www.data.gov.in/keywords/Dropout" class="text-light hover:text-white font-medium" target="_blank">Government Website</a></li>
+                        <li><a href="faq.php" class="text-light hover:text-white font-medium">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 tracking-tight">Contact Us</h3>
+                    <ul class="space-y-2 text-light">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dropoutanalysisofficial@gmail.com" target="_blank" class="text-light hover:text-white">dropoutanalysisofficial@gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <a href="tel:+917836912212" class="text-light hover:text-white">+91 7836912212</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <a href="https://maps.app.goo.gl/WryHGeufZnG1VmNr8" target="_blank">Lovely Professional University<br>Phagwara, Punjab</a>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-tertiary mt-12 pt-8 text-center text-light">
+                <p>&copy; <?= date('Y') ?> Student Dropout Analysis System. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
     <script>
     // Initialize charts
     document.addEventListener('DOMContentLoaded', function() {
@@ -633,63 +697,84 @@ $schoolTypeData = [
                 $chartId = strtolower($category . '-' . str_replace(' ', '-', $itemName));
         ?>
             // Causes Chart
-            new Chart(
-                document.getElementById('<?= $chartId ?>CausesChart').getContext('2d'),
-                {
-                    type: 'doughnut',
-                    data: {
-                        labels: <?= json_encode(array_column($data['causes'], 'name')) ?>,
-                        datasets: [{
-                            data: <?= json_encode(array_column($data['causes'], 'percentage')) ?>,
-                            backgroundColor: ['#08141B', '#11212D', '#233745', '#4A5C6A', '#9BAAAB'],
-                            borderWidth: 0
-                        }]
+           // Causes Chart with percentage labels
+new Chart(
+    document.getElementById('<?= $chartId ?>CausesChart').getContext('2d'),
+    {
+        type: 'doughnut',
+        data: {
+            labels: <?= json_encode(array_column($data['causes'], 'name')) ?>,
+            datasets: [{
+                data: <?= json_encode(array_column($data['causes'], 'percentage')) ?>,
+                backgroundColor: ['#08141B', '#11212D', '#233745', '#4A5C6A', '#9BAAAB'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                title: { 
+                    display: true, 
+                    text: 'Primary Causes of Dropouts', 
+                    font: { 
+                        size: 16, 
+                        family: 'Space Grotesk', 
+                        weight: '600' 
+                    } 
+                },
+                datalabels: {
+                    formatter: (value) => {
+                        return value + '%';
                     },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            title: { display: true, text: 'Primary Causes of Dropouts', font: { size: 16, family: 'Space Grotesk', weight: '600' } }
-                        },
-                        animation: {
-                            duration: 1500,
-                            easing: 'easeOutBounce'
+                    color: '#fff',
+                    font: {
+                        weight: 'bold',
+                        size: 14
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw + '%';
                         }
                     }
                 }
-            );
-
+            },
+            animation: {
+                duration: 0,
+                easing: 'easeInOutQuad'
+            }
+        }
+    }
+);
             // Strategies Chart
             new Chart(
-                document.getElementById('<?= $chartId ?>StrategiesChart').getContext('2d'),
-                {
-                    type: 'bar',
-                    data: {
-                        labels: <?= json_encode($data['strategies']) ?>,
-                        datasets: [{
-                            label: 'Impact Potential',
-                            data: <?= json_encode(array_fill(0, count($data['strategies']), 20)) ?>,
-                            backgroundColor: 'rgba(74, 92, 106, 0.7)',
-                            borderColor: '#4A5C6A',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            title: { display: true, text: 'Strategy Impact Potential', font: { size: 16, family: 'Space Grotesk', weight: '600' } }
+                    document.getElementById('<?= $chartId ?>StrategiesChart').getContext('2d'),
+                    {
+                        type: 'bar',
+                        data: {
+                            labels: <?= json_encode($data['strategies']) ?>,
+                            datasets: [{
+                                label: 'Impact Potential',
+                                data: <?= json_encode(array_fill(0, count($data['strategies']), 20)) ?>,
+                                backgroundColor: 'rgba(74, 92, 106, 0.7)',
+                                borderColor: '#4A5C6A',
+                                borderWidth: 1
+                            }]
                         },
-                        scales: {
-                            y: { beginAtZero: true, title: { display: true, text: 'Impact Score' } }
-                        },
-                        animation: {
-                            duration: 1500,
-                            easing: 'easeInOutQuad'
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: { display: true, text: 'Strategy Impact Potential', font: { size: 16, family: 'Space Grotesk', weight: '600' } }
+                            },
+                            scales: {
+                                y: { beginAtZero: true, title: { display: true, text: 'Impact Score' } }
+                            }
                         }
                     }
-                }
-            );
+                );
 
             // Trends Chart
             new Chart(
@@ -725,20 +810,38 @@ $schoolTypeData = [
                             }
                         ]
                     },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            title: { display: true, text: 'Dropout Rates vs National Average', font: { size: 16, family: 'Space Grotesk', weight: '600' } }
-                        },
-                        scales: {
-                            y: { beginAtZero: true, title: { display: true, text: 'Dropout Rate %' } }
-                        },
-                        animation: {
-                            duration: 1500,
-                            easing: 'easeInOutCubic'
-                        }
-                    }
+                    // In the Trends Chart configuration (around line 725)
+options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        title: { 
+            display: true, 
+            text: 'Dropout Rates vs National Average', 
+            font: { 
+                size: 16, 
+                family: 'Space Grotesk', 
+                weight: '600' 
+            } 
+        }
+    },
+    scales: {
+        y: { 
+            beginAtZero: true, 
+            title: { 
+                display: true, 
+                text: 'Dropout Rate %' 
+            } 
+        }
+    },
+    // Add animation configuration here
+    animation: {
+        duration: 0, // Disable animations
+        // OR for smooth animations:
+        // duration: 500,
+        // easing: 'easeInOutQuad'
+    }
+}
                 }
             );
         <?php endforeach; ?>
@@ -778,13 +881,39 @@ $schoolTypeData = [
                                 borderWidth: 0
                             }]
                         },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                title: { display: true, text: 'Primary Causes of Dropouts', font: { size: 16, family: 'Space Grotesk', weight: '600' } }
-                            }
-                        }
+                        // In the Causes Chart configuration (around line 650)
+options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        title: { 
+            display: true, 
+            text: 'Primary Causes of Dropouts', 
+            font: { 
+                size: 16, 
+                family: 'Space Grotesk', 
+                weight: '600' 
+            } 
+        },
+        datalabels: {
+            formatter: (value) => {
+                return value + '%';
+            },
+            color: '#fff',
+            font: {
+                weight: 'bold',
+                size: 14
+            }
+        }
+    },
+    // Add animation configuration here
+    animation: {
+        duration: 0, // Disable animations completely
+        // OR for smooth animations without bounce:
+        // duration: 500,
+        // easing: 'easeInOutQuad'
+    }
+}
                     }
                 );
 
@@ -850,16 +979,38 @@ $schoolTypeData = [
                                 }
                             ]
                         },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                title: { display: true, text: 'Dropout Rates vs National Average', font: { size: 16, family: 'Space Grotesk', weight: '600' } }
-                            },
-                            scales: {
-                                y: { beginAtZero: true, title: { display: true, text: 'Dropout Rate %' } }
-                            }
-                        }
+                        // In the Trends Chart configuration (around line 725)
+options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        title: { 
+            display: true, 
+            text: 'Dropout Rates vs National Average', 
+            font: { 
+                size: 16, 
+                family: 'Space Grotesk', 
+                weight: '600' 
+            } 
+        }
+    },
+    scales: {
+        y: { 
+            beginAtZero: true, 
+            title: { 
+                display: true, 
+                text: 'Dropout Rate %' 
+            } 
+        }
+    },
+    // Add animation configuration here
+    animation: {
+        duration: 0, // Disable animations
+        // OR for smooth animations:
+        // duration: 500,
+        // easing: 'easeInOutQuad'
+    }
+}
                     }
                 );
             <?php endforeach; ?>
@@ -867,37 +1018,38 @@ $schoolTypeData = [
         });
 
         // Search functionality
-        document.getElementById('stateSearch').addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            const stateCards = document.querySelectorAll('.state-card');
-            let hasVisibleCards = false;
+    
+// Search functionality
+document.getElementById('stateSearch').addEventListener('input', function() {
+    const query = this.value.toLowerCase().trim();
+    const stateCards = document.querySelectorAll('.state-card');
+    let hasVisibleCards = false;
 
-            stateCards.forEach(card => {
-                const stateName = card.getAttribute('data-state-name');
-                if (stateName.includes(query)) {
-                    card.style.display = 'block';
-                    hasVisibleCards = true;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+    stateCards.forEach(card => {
+        const stateName = card.getAttribute('data-state-name');
+        if (stateName.includes(query) && query !== '') {
+            card.style.display = 'block';
+            hasVisibleCards = true;
+        } else {
+            card.style.display = 'none';
+        }
+    });
 
-            // Show a message if no states match the search
-            const noResultsMsg = document.getElementById('noResultsMessage');
-            if (!hasVisibleCards && query.length > 0) {
-                if (!noResultsMsg) {
-                    const msg = document.createElement('div');
-                    msg.id = 'noResultsMessage';
-                    msg.className = 'text-center py-8 text-gray-600';
-                    msg.innerHTML = 'No states found matching "<span class="font-semibold"></span>"';
-                    document.getElementById('stateCards').appendChild(msg);
-                }
-                document.querySelector('#noResultsMessage span').textContent = query;
-                document.getElementById('noResultsMessage').style.display = 'block';
-            } else if (noResultsMsg) {
-                noResultsMsg.style.display = 'none';
-            }
-        });
+    // Show/hide no results message
+    const noResultsMsg = document.getElementById('noResultsMessage');
+    if (!hasVisibleCards && query.length > 0) {
+        noResultsMsg.style.display = 'block';
+        document.querySelector('#noResultsMessage span').textContent = query;
+    } else {
+        noResultsMsg.style.display = 'none';
+    }
+
+    // Show all cards when search is empty
+    if (query === '') {
+        stateCards.forEach(card => card.style.display = 'none');
+        noResultsMsg.style.display = 'none';
+    }
+});
 
         // Modal functions
         function openModal(category, id) {
