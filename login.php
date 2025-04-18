@@ -4,12 +4,13 @@ session_start();
 // Database connection
 $db_host = 'localhost';
 $db_user = 'root';
-$db_pass = '';
+$db_pass = '1234';
 $db_name = 'dropout';
 
 // Handle login form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name, 3307);
+
     
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
